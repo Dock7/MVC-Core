@@ -5,6 +5,18 @@
     string nombre = "Daniel";
 }
 
+@inject Microsoft.AspNetCore.Hosting.IHostingEnvironment env;
+
+<p>@env.EnvironmentName</p>
+
+<environment include="Development">
+    <p>Estamos en desarrollo</p>
+</environment>
+
+<environment include="Production">
+    <p>Estamos en producción</p>
+</environment>
+
 <p>@nombre</p>
 
 <ul>

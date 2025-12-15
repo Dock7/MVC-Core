@@ -20,7 +20,6 @@ namespace HolaMundo.Controllers
 
         public IActionResult Index()
         {
-            throw new ApplicationException("Error de prueba");
             List<string> paises = Repositorio.Obtenertodos();
             return View(paises);
         }
