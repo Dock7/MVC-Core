@@ -4,15 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using HolaMundo.Models;
+using HolaMundo.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HolaMundo.Controllers
 {
     public class HomeController : Controller
     {
+        public IPaisRepositorioEnMemoria Repositorio { get; }
+
+        public HomeController(IPaisRepositorioEnMemoria repositorio)
+        {
+            Repositorio = repositorio;
+        }
+
         public IActionResult Index()
         {
-            List<string> paises = new List<string> { "España", "Portugal", "Francia", "Italia", "Alemania", "Inglaterra" };
+            throw new ApplicationException("Error de prueba");
+            List<string> paises = Repositorio.Obtenertodos();
             return View(paises);
         }
 
